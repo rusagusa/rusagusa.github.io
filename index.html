@@ -1,0 +1,465 @@
+ <!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Professional Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "XOjheaG3Lux01jxvp",
+            });
+        })();
+    </script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "XOjheaG3Lux01jxvp",
+      });
+   })();
+</script>
+</head>
+<body class="font-inter antialiased text-[#333333] bg-[#F5F5F5] min-h-screen">
+    
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-10 bg-white shadow-md py-4 px-6 md:px-12 flex justify-between items-center">
+        <div class="text-2xl font-bold text-[#4F6F52]">rusagusa jean felix</div>
+        <div class="hidden md:flex space-x-8">
+            <a href="#home" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300">Home</a>
+            <a href="#projects" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300">Projects</a>
+            <a href="#resume" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300">Resume</a>
+            <a href="#blog" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300">Blog</a>
+            <a href="#gallery" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300">Gallery</a>
+            <a href="#contact" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300">Contact</a>
+        </div>
+        <!-- Mobile menu button (can be expanded with actual mobile menu logic) -->
+        <div class="md:hidden">
+            <button class="text-[#333333] focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-white to-[#A8DADC] flex flex-col items-center justify-center text-center px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Official Portrait -->
+            <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mx-auto mb-6 shadow-lg border-4 border-white">
+                <img
+                    src="Felix_021347~2.jpg"
+                    alt="Your Official Portrait"
+                    class="w-full h-full object-cover"
+                    onerror="this.onerror=null; this.src='https://placehold.co/400x400/F5F5F5/333333?text=Error';"
+                />
+            </div>
+            
+            <!-- Name and Tagline -->
+            <h1 class="text-4xl md:text-6xl font-extrabold text-[#4F6F52] mb-4 leading-tight">
+                Hi, I'm <span class="text-[#333333]">rusagusa jean felix</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-[#333333] mb-8">
+                A passionate <span class="font-semibold text-[#4F6F52]">computer enthusiast</span> building innovative solutions.
+            </p>
+            
+            <!-- Pitch Video Placeholder 
+            <div class="w-full max-w-2xl mx-auto bg-gray-200 rounded-lg overflow-hidden shadow-xl mb-8 border border-gray-300 aspect-video flex items-center justify-center">
+                <i data-lucide="youtube" class="w-24 h-24 text-gray-500"></i>
+                <p class="absolute text-gray-700 text-lg font-medium">Your Pitch Video Here</p>
+                <!-- Replace this div with an actual iframe for your video: -->
+                <!--<iframe
+                    width="100%"
+                    height="100%"
+                    src="YOUR_YOUTUBE_EMBED_URL"
+                    title="Your Pitch Video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    class="absolute top-0 left-0 w-full h-full"
+                ></iframe> -->
+            </div>
+            
+            <!-- Short Pitch/Intro -->
+            <p class="text-lg md:text-xl text-[#333333] max-w-3xl mx-auto mb-12">
+                Welcome to my professional space! I specialize in leveraging cutting-edge technologies to solve complex problems and create impactful digital experiences. Explore my projects, insights, and journey in the tech world.
+            </p>
+            
+            <!-- Call to Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a
+                    href="#projects"
+                    class="bg-[#4F6F52] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg transform hover:scale-105"
+                >
+                    View My Work
+                </a>
+                <a
+                    href="#contact"
+                    class="bg-[#A8DADC] text-[#333333] px-8 py-3 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg transform hover:scale-105"
+                >
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 md:py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold text-center text-[#4F6F52] mb-12">
+                <i data-lucide="briefcase" class="inline-block mr-3 text-[#A8DADC]" style="width: 48px; height: 48px;"></i>
+                My Projects
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl font-semibold text-[#333333] mb-3">Elevator Simulation in Python</h3>
+                    <p class="text-gray-700 mb-4">Simulated a 10-floor elevator system using Python, incorporating random floor requests to model real-world elevator behavior.
+                         Utilized object-oriented programming and queue management to handle multiple passenger interactions efficiently.</p>
+                    <!--a href="#" class="text-[#4F6F52] hover:underline font-medium flex items-center">
+                        Learn More
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a-->
+                </div>
+                <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl font-semibold text-[#333333] mb-3">IP Address Change Handler in C Language</h3>
+                    <p class="text-gray-700 mb-4">Developed a lightweight system tool in C to monitor real-time IP address changes on a Linux machine. Leveraged low-level network interface querying to detect, log,
+                         and respond to IP modifications effectively</p>
+                    <!--a href="#" class="text-[#4F6F52] hover:underline font-medium flex items-center">
+                        Learn More
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a-->
+                </div>
+                <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl font-semibold text-[#333333] mb-3">Raspberry Pi-Based Thermometer System</h3>
+                    <p class="text-gray-700 mb-4">Engineered a temperature monitoring solution using Raspberry Pi and DS18B20 digital sensors. Implemented Python scripts to read sensor data, 
+                        log temperature readings periodically, and prepare the system for potential automation tasks.</p>
+                    <!--a href="#" class="text-[#4F6F52] hover:underline font-medium flex items-center">
+                        Learn More
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a-->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resume/CV Section -->
+    <section id="resume" class="py-16 md:py-24 px-6 bg-[#A8DADC] text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold text-[#333333] mb-8">
+                <i data-lucide="user" class="inline-block mr-3 text-[#4F6F52]" style="width: 48px; height: 48px;"></i>
+                My Resume & Professional Journey
+            </h2>
+            <p class="text-lg md:text-xl text-[#333333] mb-8">
+                Download my comprehensive resume to learn more about my skills, experience, and educational background.
+            </p>
+            <button id="download-cv-btn" class="bg-[#4F6F52] text-white px-10 py-4 rounded-full text-xl font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg transform hover:scale-105 flex items-center justify-center mx-auto"
+            >
+	
+		<a href = "RUSAGUSA Jean Felix resume v5.0.pdf">
+               <i data-lucide="download" class="mr-3" style="width: 24px; height: 24px;">
+		
+		</i>
+                Download CV (PDF)
+		</a>
+            </button>
+        </div>
+    </section>
+
+    <!-- Professional Moments & Certificates Section -->
+    <section id="certificates" class="py-16 md:py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold text-center text-[#4F6F52] mb-12">
+                <i data-lucide="award" class="inline-block mr-3 text-[#A8DADC]" style="width: 48px; height: 48px;"></i>
+                Certifications
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl font-semibold text-[#333333] mb-2">Professional Foundations</h3>
+                    <p class="text-gray-700 mb-1">Issuer: ALX Africa</p>
+                    <p class="text-gray-600 text-sm">May 2025</p>
+                </div>
+                <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl font-semibold text-[#333333] mb-2">Rasperberry pi</h3>
+                    <p class="text-gray-700 mb-1">Issuer: Rasperberry pi</p>
+                    <p class="text-gray-600 text-sm">July 2025</p>
+                </div>
+                <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-xl font-semibold text-[#333333] mb-2">Ethical hacking</h3>
+                    <p class="text-gray-700 mb-1">Issuer: Great Learning</p>
+                    <p class="text-gray-600 text-sm">February 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-16 md:py-24 px-6 bg-[#F5F5F5]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold text-center text-[#4F6F52] mb-12">
+                <i data-lucide="book-open" class="inline-block mr-3 text-[#A8DADC]" style="width: 48px; height: 48px;"></i>
+                My Blog & Insights
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Blog Post 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2 cursor-pointer blog-card" data-post-id="3">
+                    <h3 class="text-xl font-semibold text-[#333333] mb-3">Computers are becoming more like us</h3>
+                    <p class="text-gray-700 mb-4 line-clamp-3">Every year, computers are getting better at doing things that used to be only for people. Talking, drawing, writing, even making music  computers can now help with all of these.
+
+                        But here’s the truth:
+                        Computers don’t want to replace people.
+                        They work best with people.
+                        
+                        I Believe Computers Should Help Everyone
+                        I believe the power of computers should reach every part of the world not just rich countries, not just big cities.
+                        A smart phone in a rural village should be just as powerful as a laptop in a big office. Knowledge should belong to everyone.
+                        
+                        The Real Power Is You
+                        Yes, I can write code, explain hard ideas, and help build cool projects.
+                        But the most important part of any computer system is you the human using it.
+                        
+                        You are the dreamer.
+                        You are the builder.
+                        You are the future.
+                        
+                        So here’s what I think:
+                        Computers will never be better than people at caring, dreaming, or believing.
+                        But together people and machines we can do amazing things.
+                        
+                         Keep learning. Keep building. I’ll be right here to help.</p>
+			
+                    <span class="text-[#4F6F52] hover:underline font-medium flex items-center">
+                        Read More
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </span>
+			
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Post Modal -->
+   
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 md:py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold text-center text-[#4F6F52] mb-12">
+                <i data-lucide="image" class="inline-block mr-3 text-[#A8DADC]" style="width: 48px; height: 70px;"></i>
+                My Gallery
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Gallery Image 1 -->
+                <div class="relative group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer gallery-card"
+                     data-img-src="Felix_021347~2.jpg"
+                     data-img-alt="Project Showcase 1"
+                     data-img-desc="A screenshot of a dashboard from Project Alpha.">
+                    <img src="Felix_021347~2.jpg" alt="Project Showcase 1" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/F5F5F5/333333?text=Error';">
+                    <div class="absolute inset-0 bg-[#4F6F52] bg-opacity-0 group-hover:bg-opacity-70 flex items-center justify-center transition-all duration-300">
+                        <p class="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">Official potrait</p>
+                    </div>
+                </div>
+                <!-- Gallery Image 2 -->
+                <div class="relative group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer gallery-card"
+                     data-img-src="DSC01863~2.jpg"
+                     data-img-alt="Team Collaboration"
+                     data-img-desc="Working session with my development team.">
+                    <img src="DSC01863~2.jpg" alt="Team Collaboration" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/F5F5F5/333333?text=Error';">
+                    <div class="absolute inset-0 bg-[#4F6F52] bg-opacity-0 group-hover:bg-opacity-70 flex items-center justify-center transition-all duration-300">
+                        <p class="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">Working session with my team at arduino workshop.</p>
+                    </div>
+                </div>
+                <!-- Gallery Image 3 -->
+                <div class="relative group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer gallery-card"
+                     data-img-src="Copy of alx-headshots-25 (1) (1).jpg"
+                     data-img-alt="Certificate Award"
+                     data-img-desc="Receiving my Certified Cloud Architect certificate.">
+                    <img src="Copy of alx-headshots-25 (1) (1).jpg" alt="Certificate Award" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/F5F5F5/333333?text=Error';">
+                    <div class="absolute inset-0 bg-[#4F6F52] bg-opacity-0 group-hover:bg-opacity-70 flex items-center justify-center transition-all duration-300">
+                        <p class="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">Head shot</p>
+                    </div>
+                </div>
+                <!-- Gallery Image 4 -->
+                <div class="relative group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer gallery-card"
+                     data-img-src="DSC02121~2.jpg"
+                     data-img-alt="Tech Event"
+                     data-img-desc="Networking at a local tech conference.">
+                    <img src="DSC02121~2.jpg" alt="Tech Event" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/F5F5F5/333333?text=Error';">
+                    <div class="absolute inset-0 bg-[#4F6F52] bg-opacity-0 group-hover:bg-opacity-70 flex items-center justify-center transition-all duration-300">
+                        <p class="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">Project pitching at K-lab.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Image Modal -->
+    
+    <div id="gallery-modal" class="modal fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 invisible opacity-0">
+        <div class="bg-white rounded-lg p-4 max-w-4xl w-full relative shadow-2xl">
+            <button id="close-gallery-modal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 transition-colors duration-200"><i data-lucide="x" class="w-8 h-8"></i></button>
+            <img id="gallery-modal-img" src="" alt="" class="w-full h-auto max-h-[70vh] object-contain rounded-lg mb-4">
+            <p id="gallery-modal-desc" class="text-center text-gray-800 text-lg"></p>
+        </div>
+    </div>
+    
+    <!-- Contact & Socials Section -->
+    <section id="contact" class="py-16 md:py-24 px-6 bg-[#A8DADC] text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold text-[#333333] mb-8">
+                Let's Connect!
+            </h2>
+            <p class="text-lg md:text-xl text-[#333333] mb-12">
+                I'm always open to new opportunities, collaborations, and conversations. Feel free to reach out!
+            </p>
+            
+            <div class="flex flex-col items-center space-y-6 mb-12">
+                <!-- Email -->
+                <a href="mailto:your.email@example.com" class="flex items-center text-[#333333] text-xl md:text-2xl hover:text-[#4F6F52] transition-colors duration-300 group">
+                    <i data-lucide="mail" class="mr-4 text-[#4F6F52] group-hover:text-[#333333] transition-colors duration-300" style="width: 32px; height: 32px;"></i>
+                    rusagusa.edu@gmail.com
+                </a>
+                
+                <!-- Social Media Links -->
+                <div class="flex space-x-8">
+                    <a href="https://linkedin.com/in/RUSAGUAS Jean Felix" target="_blank" rel="noopener noreferrer" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300 transform hover:scale-110">
+                        <i data-lucide="linkedin" style="width: 40px; height: 40px;"></i>
+                    </a>
+                    <a href="https://github.com/rusagusa" target="_blank" rel="noopener noreferrer" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300 transform hover:scale-110">
+                        <i data-lucide="github" style="width: 40px; height: 40px;"></i>
+                    </a>
+                    <a href="https://twitter.com/rusagusa" target="_blank" rel="noopener noreferrer" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300 transform hover:scale-110">
+                        <i data-lucide="twitter" style="width: 40px; height: 40px;"></i>
+                    </a>
+                    <a href="https://instagram.com/rusagusa_jean_felix" target="_blank" rel="noopener noreferrer" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300 transform hover:scale-110">
+                        <i data-lucide="instagram" style="width: 40px; height: 40px;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-xl">
+                <h3 class="text-2xl font-bold text-[#4F6F52] mb-6">Send a Message</h3>
+                <form id="contact-form" class="space-y-4">
+                    <div>
+                        <input type="text" name="user_name" placeholder="Your Name" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-[#4F6F52] focus:border-transparent transition-all duration-200" required>
+                    </div>
+                    <div>
+                        <input type="email" name="user_email" placeholder="Your Email" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-[#4F6F52] focus:border-transparent transition-all duration-200" required>
+                    </div>
+                    <div>
+                        <textarea name="message" placeholder="Your Message" rows="5" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-[#4F6F52] focus:border-transparent transition-all duration-200 resize-y" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-[#4F6F52] text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 shadow-md transform hover:scale-105" id="submit-btn">
+                        Send Message
+                    </button>
+                    <!-- Status message container -->
+                    <div id="form-status" class="mt-2 text-center font-medium"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-[#333333] text-white py-8 text-center text-sm">
+        <div class="max-w-6xl mx-auto px-6">
+            <p>&copy; 2024 rusagusa.edu. All rights reserved.</p>
+            <p class="mt-2">Designed and Built with ❤️ by rusagusa</p>
+            
+            <!-- Optional Ads Section -->
+            <div class="mt-6 p-4 bg-gray-700 rounded-lg text-gray-300 text-xs">
+                <p class="font-semibold mb-2">Ads</p>
+                <p>This place is reserved for advertizements</p>
+            </div>
+        </div>
+    </footer>
+    
+      <script>
+    document.addEventListener('DOMContentLoaded', () => {
+                lucide.createIcons();
+            });
+
+
+     window.onload = function () {
+  const form = document.getElementById("contact-form");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const serviceID = "service_85yn1hq";
+    const templateID = "template_sst7j36";
+    const publicKey = "XOjheaG3Lux01jxvp";
+
+    emailjs.sendForm(serviceID, templateID, this, publicKey)
+      .then(() => {
+        alert("Message sent successfully!");
+        form.reset();
+      }, (error) => {
+        alert("Failed to send message: " + error.text);
+      });
+  });
+};
+
+
+  const blogPosts = {
+    1: {
+      title: "How I built my portfolio",
+      content: "I started from scratch using HTML, CSS, and Tailwind. Then I improved it section by section, adding a gallery, contact form, and responsiveness."
+    },
+    2: {
+      title: "The tools I use daily",
+      content: "I use VS Code, GitHub, ChatGPT, and Figma. My daily workflow includes project planning, coding, testing, and design review."
+    }
+  };
+
+  document.querySelectorAll('[data-post-id]').forEach(card => {
+    card.addEventListener('click', () => {
+      const id = card.getAttribute('data-post-id');
+      const post = blogPosts[id];
+      document.getElementById('modalTitle').innerText = post.title;
+      document.getElementById('modalContent').innerText = post.content;
+      document.getElementById('modal').classList.remove('hidden');
+    });
+  });
+
+  document.getElementById('closeModal').addEventListener('click', () => {
+    document.getElementById('modal').classList.add('hidden');
+  });
+
+  
+  const galleryModal = document.getElementById('gallery-modal');
+            const closeGalleryModalBtn = document.getElementById('close-gallery-modal');
+            const galleryModalImg = document.getElementById('gallery-modal-img');
+            const galleryModalDesc = document.getElementById('gallery-modal-desc');
+
+            document.addEventListener('click', (e) => {
+                const galleryCard = e.target.closest('.gallery-card');
+                if (galleryCard) {
+                    const imgSrc = galleryCard.dataset.imgSrc;
+                    const imgDesc = galleryCard.dataset.imgDesc;
+                    galleryModalImg.src = imgSrc;
+                    galleryModalImg.alt = imgDesc;
+                    galleryModalDesc.textContent = imgDesc;
+                    galleryModal.classList.remove('invisible');
+                    galleryModal.classList.add('visible');
+                }
+            });
+            closeGalleryModalBtn.addEventListener('click', () => { galleryModal.classList.remove('visible'); galleryModal.classList.add('invisible'); });
+            galleryModal.addEventListener('click', (e) => { if (e.target.id === 'gallery-modal') closeGalleryModalBtn.click(); });
+
+    </script>
+</body>
+</html>
