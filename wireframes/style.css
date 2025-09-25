@@ -1,6 +1,6 @@
 :root {
     --dark-blue: #0E294B;
-    --light-green: #A9D46A;
+    --light-green: #004526;
     --off-white: #F4F4F4;
     --text-color: #333;
 }
@@ -1257,3 +1257,4 @@ a:hover {
     from {opacity: .4}
     to {opacity: 1}
   }
+
