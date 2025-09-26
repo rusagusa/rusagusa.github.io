@@ -7,6 +7,7 @@
     <meta name="description" content="Uburiza Solutions empowers Rwandan businesses with digital marketing, tech training, and creative media services. We work with startups, SMEs, and corporate organizations.">
     <meta name="keywords" content="Uburiza Solutions, digital marketing Rwanda, website design Kigali, corporate training, digital literacy, social media management, SEO, creative media, Uburiza Green Initiative">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hamb-menu.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -18,23 +19,21 @@
         <a href="#" class="logo">
             <img src="ubuliza_logo.PNG" alt="Uburiza Solutions Logo">
         </a>
-        <div class="header-nav-container">
-            <nav class="navbar">
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#blog">Blogs</a></li>
-                  <!--  <li><a href="#team">Our Team</a></li>-->
-                    <li><a href="#faqs">FAQs</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-            </nav>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
         </div>
-    </header>
+        <nav class="navbar" id="mobile-menu">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#blog">Blogs</a></li>
+                <li><a href="#faqs">FAQs</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
     <section id="home" class="hero section-bg">
         <div class="container hero-container">
             <div class="hero-text-content">
@@ -71,16 +70,6 @@
                                 <p>To bridge the digital divide by equipping businesses with the skills, systems, and strategies to compete and grow sustainably.</p>
                             </div>
                         </div>
-                       <!-- <div class="card core-values">
-                            <h3>Core Values</h3>
-                            <div class="values-list">
-                                <span>Innovation</span>
-                                <span>Empowerment</span>
-                                <span>Integrity</span>
-                                <span>Collaboration</span>
-                                <span>Sustainability</span>
-                            </div>
-                        </div>-->
                     </div>
                 </div>
             </div>
@@ -123,13 +112,15 @@
 
             <div class="service-details">
                 <div class="service-category">
-                    <h3>Tech & Digital Literacy Training</h3>
+                    <i class="fas fa-chalkboard-user service-icon"></i>
+                    <h3>Tech & Professional Trainings</h3>
                     <ul>
                         <li>Practical training on essential computer skills, business software (CRM, ERP, Accounting), and AI-powered tools.</li>
                         <li>Hands-on programs that make teams more efficient and future-ready.</li>
                     </ul>
                 </div>
                 <div class="service-category">
+                    <i class="fas fa-chart-line service-icon"></i>
                     <h3>Digital Marketing Solutions</h3>
                     <ul>
                         <li>Social Media Management, grow and engage your audience.</li>
@@ -138,6 +129,7 @@
                     </ul>
                 </div>
                 <div class="service-category">
+                    <i class="fas fa-video service-icon"></i>
                     <h3>Creative Media Production</h3>
                     <ul>
                         <li>Professional photography, video, and graphic design.</li>
@@ -146,6 +138,8 @@
                     </ul>
                 </div>
                 <div class="service-category">
+                    <i class="fas fa-code service-icon"></i>
+
                     <h3>Website Hosting & Development</h3>
                     <ul>
                         <li>Secure hosting and reliable domains.</li>
@@ -214,7 +208,13 @@
                     </div>
                 </a>
                
-                
+                <a href="#" class="blog-post">
+                    <div class="post-content">
+                        <h3>Mastering Social Media Content Creation</h3>
+                        <p>Get tips and tricks for creating engaging and high-quality content that resonates with your target audience.</p>
+                        <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -227,27 +227,27 @@
                 <div class="client-card">
                     <i class="fas fa-rocket"></i>
                     <h3>Startups</h3>
-                    <p>building a strong digital foundation.</p>
+                    <p>Building a strong digital foundation.</p>
                 </div>
                 <div class="client-card">
                     <i class="fas fa-building"></i>
                     <h3>SMEs</h3>
-                    <p>scaling with digital tools and smart marketing.</p>
+                    <p>Scaling with digital tools and smart marketing.</p>
                 </div>
                 <div class="client-card">
                     <i class="fas fa-university"></i>
                     <h3>Corporate Organizations</h3>
-                    <p>upgrading staff skills and automating systems.</p>
+                    <p>Upgrading staff skills and automating systems.</p>
                 </div>
                 <div class="client-card">
                     <i class="fas fa-graduation-cap"></i>
                     <h3>Schools & Institutions</h3>
-                    <p>equipping learners with future-ready skills.</p>
+                    <p>Equipping learners with future-ready skills.</p>
                 </div>
                 <div class="client-card">
                     <i class="fas fa-handshake"></i>
                     <h3>Community Enterprises & Cooperatives</h3>
-                    <p>digitizing services to expand reach.</p>
+                    <p>Digitizing services to expand reach.</p>
                 </div>
             </div>
         </div>
@@ -431,6 +431,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="hamb-menu.js"></script>
 </body>
-
 </html>
