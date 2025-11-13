@@ -3,6 +3,7 @@
     --light-green: #A9D46A;
     --off-white: #F4F4F4;
     --text-color: #333;
+    --dark-green: #042F2E;
 }
 
 * {
@@ -667,6 +668,15 @@ a:hover {
     color: var(--dark-blue);
 }
 
+/* Add or update the responsive rule for tablets/desktops */
+@media (min-width: 768px) {
+    .blog-post {
+        flex: 1; /* This makes the cards grow and shrink evenly */
+        min-width: 250px;
+    }
+}
+
+
 /* Who We Serve Section */
 .who-we-serve {
     background-color: var(--off-white);
@@ -944,6 +954,26 @@ a:hover {
     transform: none;
 }
 
+@media (max-width: 992px) {
+    .form-content-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .form-text-content {
+        text-align: center;
+    }
+
+    .form-text-content .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .form-container {
+        padding: 30px 20px;
+    }
+}
 /* Footer */
 .footer {
     background-color: var(--dark-blue);
@@ -1013,84 +1043,11 @@ a:hover {
     .hero {
         min-height: auto;
     }
-
-    .form-content-flex {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .form-text-content {
-        text-align: center;
-    }
-
-    .form-text-content .section-title::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .form-container {
-        padding: 30px 20px;
-    }
 }
 
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.5rem;
-    }
-
-    #menu-toggle {
-        display: block;
-        position: fixed;
-        top: 25px;
-        right: 25px;
-        z-index: 1001;
-    }
-
-    #mobile-menu {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 100%;
-        background-color: var(--dark-green);
-        padding-top: 80px;
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-        z-index: 1000;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-
-    .nav-links a {
-        color: #fff;
-        font-size: 1.5rem;
-    }
-
-    #mobile-menu.active {
-        transform: translateX(0);
-    }
-
-    .header-nav-container {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: var(--dark-blue);
-        transition: right 0.3s ease-in-out;
-        padding-top: 80px;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-    }
-    .header-nav-container.active {
-        right: 0;
     }
     .navbar ul {
         flex-direction: column;
@@ -1112,21 +1069,6 @@ a:hover {
     .vision-mission-cards, .footer-content {
         flex-direction: column;
         gap: 20px;
-    }
-
-    .blog-post {
-        flex: 1;
-        min-width: 250px;
-    }
-
-    .blog-post-content .container {
-        padding: 30px 20px;
-    }
-    .post-title {
-        font-size: 2rem;
-    }
-    .post-body h2 {
-        font-size: 1.5rem;
     }
 }
 /* Blog Post Page Styles */
@@ -1196,6 +1138,17 @@ a:hover {
     line-height: 1.6;
 }
 
+@media (max-width: 768px) {
+    .blog-post-content .container {
+        padding: 30px 20px;
+    }
+    .post-title {
+        font-size: 2rem;
+    }
+    .post-body h2 {
+        font-size: 1.5rem;
+    }
+}
 /* --- Success Stories NEW Styles --- */
 .story-flex-container {
     display: flex;
@@ -1332,4 +1285,57 @@ a:hover {
 .service-box:hover .service-icon {
     color: var(--light-green);
     background-color: var(--dark-blue);
+}
+
+/*
+ * This stylesheet contains styles specific to the mobile navigation menu.
+ * It uses a media query to only apply these styles on screens up to 768px wide.
+ */
+
+ @media (max-width: 768px) {
+
+    /* 1. Show the hamburger menu button and fix its position */
+    #menu-toggle {
+        display: block;
+        position: fixed;
+        top: 25px;
+        right: 25px;
+        z-index: 1001; /* Ensure it's on top of the menu */
+    }
+
+    /* 2. Style the mobile menu container as a full-screen overlay */
+    #mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 80%; /* Adjusted to be 80% of the screen width */
+        max-width: 350px; /* Prevents it from getting too large on tablets */
+        background-color: var(--dark-green); /* Dark green background */
+        padding-top: 80px;
+        transform: translateX(100%); /* Start off-screen to the right */
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    /* 3. The class that toggles the menu into view */
+    #mobile-menu.active {
+        transform: translateX(0); /* Slides the menu into view */
+    }
+
+    /* 4. Stack the links vertically for mobile */
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    /* 5. Style the links with a white color */
+    .nav-links a {
+        color: #fff; /* White text for links */
+        font-size: 1.5rem;
+    }
 }
