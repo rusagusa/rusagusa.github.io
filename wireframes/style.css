@@ -1345,3 +1345,87 @@ a:hover {
     color: var(--light-green); 
     background-color: var(--dark-blue);
 }
+
+/* Added media queries for responsiveness */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 992px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 768px;
+    }
+
+    .hero-container,
+    .about-flex,
+    .story-flex-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-image-wrapper,
+    .about-image-wrapper {
+        max-width: 80%;
+        margin-bottom: 30px;
+    }
+
+    .form-content-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .form-text-content {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .price-cards-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .team-grid,
+    .client-grid,
+    .service-details {
+        grid-template-columns: 1fr;
+    }
+}
