@@ -19,14 +19,6 @@ sections.forEach(section => {
 });
 
 
-// Mobile navigation toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navbar = document.querySelector('.header-nav-container');
-
-menuToggle.addEventListener('click', () => {
-    navbar.classList.toggle('active');
-});
-
 
 // Header scroll effect
 let lastScrollY = window.scrollY;
@@ -71,40 +63,82 @@ faqQuestions.forEach(question => {
         }
     });
 });
-// Function to handle form submission
 document.addEventListener('DOMContentLoaded', () => {
+    // Mobile navigation toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuToggle && mobileMenu) {
+        const navLinks = mobileMenu.querySelectorAll('a');
+
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                menuToggle.querySelector('i').className = 'fas fa-bars';
+            });
+        });
+    }
+
+    // Form submission
     const form = document.getElementById('appointmentForm');
     const formMessages = document.getElementById('form-messages');
 
-    form.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent the default form submission
+    if (form) {
+      form.addEventListener('submit', (event) => {
+          event.preventDefault();
 
-        const formData = new FormData(form);
+          const formData = new FormData(form);
 
-        fetch(form.getAttribute('action'), {
-            method: 'POST',
-            body: formData,
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                formMessages.textContent = data.message;
-                formMessages.classList.remove('error');
-                formMessages.classList.add('success');
-                form.reset(); // Reset the form fields on success
-            } else {
-                formMessages.textContent = data.message;
-                formMessages.classList.remove('success');
-                formMessages.classList.add('error');
+          fetch(form.getAttribute('action'), {
+              method: 'POST',
+              body: formData,
+          })
+          .then(response => response.json())
+          .then(data => {
+              if (data.success) {
+                  formMessages.textContent = data.message;
+                  formMessages.classList.remove('error');
+                  formMessages.classList.add('success');
+                  form.reset();
+              } else {
+                  formMessages.textContent = data.message;
+                  formMessages.classList.remove('success');
+                  formMessages.classList.add('error');
+              }
+          })
+          .catch(error => {
+              console.error('Error:', error);
+              formMessages.textContent = 'An unexpected error occurred. Please try again.';
+              formMessages.classList.remove('success');
+              formMessages.classList.add('error');
+          });
+      });
+    }
+
+    // Slideshow
+    showSlides(slideIndex);
+
+    // URL parameter
+    const serviceParam = getUrlParameter('service');
+    if (serviceParam) {
+        const serviceSelect = document.getElementById('service');
+        if (serviceSelect) {
+            const optionToSelect = serviceSelect.querySelector(`option[value="${serviceParam}"]`);
+            if (optionToSelect) {
+                optionToSelect.selected = true;
             }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            formMessages.textContent = 'An unexpected error occurred. Please try again.';
-            formMessages.classList.remove('success');
-            formMessages.classList.add('error');
-        });
-    });
+        }
+    }
 });
 
 // Function to get a URL parameter by name
@@ -114,21 +148,6 @@ function getUrlParameter(name) {
     const results = regex.exec(location.search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
-
-// Check for URL parameter on page load
-window.addEventListener('DOMContentLoaded', (event) => {
-    const serviceParam = getUrlParameter('service');
-    if (serviceParam) {
-        const serviceSelect = document.getElementById('service');
-        if (serviceSelect) {
-            // Find the option with the matching value and select it
-            const optionToSelect = serviceSelect.querySelector(`option[value="${serviceParam}"]`);
-            if (optionToSelect) {
-                optionToSelect.selected = true;
-            }
-        }
-    }
-});
 let slideIndex = 1;
 
 // Next/previous controls
@@ -153,11 +172,8 @@ function showSlides(n) {
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+  if (slides.length > 0) {
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+  }
 }
-
-// Initialize slideshow on page load
-document.addEventListener('DOMContentLoaded', () => {
-  showSlides(slideIndex);
-});
