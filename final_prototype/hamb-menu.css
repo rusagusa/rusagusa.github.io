@@ -1,0 +1,52 @@
+/*
+ * This stylesheet contains styles specific to the mobile navigation menu.
+ * It uses a media query to only apply these styles on screens up to 768px wide.
+ */
+
+ @media (max-width: 768px) {
+    
+    /* 1. Show the hamburger menu button and fix its position */
+    #menu-toggle {
+        display: block;
+        position: fixed;
+        top: 25px;
+        right: 25px;
+        z-index: 1001; /* Ensure it's on top of the menu */
+    }
+
+    /* 2. Style the mobile menu container as a full-screen overlay */
+    #mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 80%; /* Adjusted to be 80% of the screen width */
+        max-width: 350px; /* Prevents it from getting too large on tablets */
+        background-color: #042F2E; /* Dark green background */
+        padding-top: 80px;
+        transform: translateX(100%); /* Start off-screen to the right */
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    /* 3. The class that toggles the menu into view */
+    #mobile-menu.active {
+        transform: translateX(0); /* Slides the menu into view */
+    }
+    
+    /* 4. Stack the links vertically for mobile */
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    /* 5. Style the links with a white color */
+    .nav-links a {
+        color: #fff; /* White text for links */
+        font-size: 1.5rem;
+    }
+}
