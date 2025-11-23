@@ -234,52 +234,6 @@ a:hover {
     font-size: 1.8rem;
     color: var(--dark-blue);
 }
-@media (max-width: 768px) {
-    
-    /* 1. Show the hamburger menu button */
-    #menu-toggle {
-        display: block;
-        position: fixed; /* Fix to the viewport */
-        top: 25px; /* Adjust as needed */
-        right: 25px; /* Adjust as needed */
-        z-index: 1001; /* Ensure it's on top */
-    }
-
-    /* 2. Style the mobile menu container */
-    #mobile-menu {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 100%;
-        background-color: var(--dark-green); /* Dark Green Background */
-        padding-top: 80px;
-        transform: translateX(100%); /* Start off-screen */
-        transition: transform 0.3s ease-in-out;
-        z-index: 1000;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-    }
-
-    /* 3. Style the links inside the mobile menu */
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-
-    .nav-links a {
-        color: #fff; /* White text for links */
-        font-size: 1.5rem;
-    }
-    
-    /* 4. The class that toggles the menu into view */
-    #mobile-menu.active {
-        transform: translateX(0);
-    }
-}
-
 
 /* Hero Section */
 .hero {
@@ -617,7 +571,7 @@ a:hover {
 
 .blog-grid {
     display: flex; /* This is the key change to make them horizontal */
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: center; /* Centers the cards horizontally */
     gap: 30px; /* Provides spacing between the cards */
     margin-top: 50px;
@@ -704,23 +658,14 @@ a:hover {
     transition: color 0.3s ease;
 }
 .post-body {
-    line-height: 1.8; 
-    overflow: visible; 
+    line-height: 1.8;
+    overflow: visible;
     padding: 0;
     margin: 0;
 }
 .blog-post:hover .read-more {
     color: var(--dark-blue);
 }
-
-/* Add or update the responsive rule for tablets/desktops */
-@media (min-width: 768px) {
-    .blog-post {
-        flex: 1; /* This makes the cards grow and shrink evenly */
-        min-width: 250px;
-    }
-}
-
 
 /* Who We Serve Section */
 .who-we-serve {
@@ -998,27 +943,6 @@ a:hover {
     color: var(--dark-blue);
     transform: none;
 }
-
-@media (max-width: 992px) {
-    .form-content-flex {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .form-text-content {
-        text-align: center;
-    }
-
-    .form-text-content .section-title::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .form-container {
-        padding: 30px 20px;
-    }
-}
 /* Footer */
 .footer {
     background-color: var(--dark-blue);
@@ -1061,6 +985,14 @@ a:hover {
 }
 
 /* Responsive Design */
+
+@media (min-width: 768px) {
+    .blog-post {
+        flex: 1; /* This makes the cards grow and shrink evenly */
+        min-width: 250px;
+    }
+}
+
 @media (max-width: 992px) {
     .about-flex, .hero-container {
         flex-direction: column-reverse;
@@ -1087,6 +1019,34 @@ a:hover {
     }
     .hero {
         min-height: auto;
+    }
+    .form-content-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .form-text-content {
+        text-align: center;
+    }
+
+    .form-text-content .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .form-container {
+        padding: 30px 20px;
+    }
+    .story-flex-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .story-image-slider {
+        margin-top: 30px;
+    }
+    .story-intro h3 {
+        font-size: 1.7rem;
     }
 }
 
@@ -1128,6 +1088,54 @@ a:hover {
     .vision-mission-cards, .footer-content {
         flex-direction: column;
         gap: 20px;
+    }
+    #menu-toggle {
+        display: block;
+        position: fixed;
+        top: 25px;
+        right: 25px;
+        z-index: 1001; /* Ensure it's on top of the menu */
+    }
+
+    #mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 80%; /* Adjusted to be 80% of the screen width */
+        max-width: 350px; /* Prevents it from getting too large on tablets */
+        background-color: #042F2E; /* Dark green background */
+        padding-top: 80px;
+        transform: translateX(100%); /* Start off-screen to the right */
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    #mobile-menu.active {
+        transform: translateX(0); /* Slides the menu into view */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .nav-links a {
+        color: #fff; /* White text for links */
+        font-size: 1.5rem;
+    }
+    .blog-post-content .container {
+        padding: 30px 20px;
+    }
+    .post-title {
+        font-size: 2rem;
+    }
+    .post-body h2 {
+        font-size: 1.5rem;
     }
 }
 /* Blog Post Page Styles */
@@ -1197,17 +1205,6 @@ a:hover {
     line-height: 1.6;
 }
 
-@media (max-width: 768px) {
-    .blog-post-content .container {
-        padding: 30px 20px;
-    }
-    .post-title {
-        font-size: 2rem;
-    }
-    .post-body h2 {
-        font-size: 1.5rem;
-    }
-}
 /* --- Success Stories NEW Styles --- */
 .story-flex-container {
     display: flex;
@@ -1248,36 +1245,22 @@ a:hover {
 .read-more-button {
     margin-top: 20px;
 }
-
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    .story-flex-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .story-image-slider {
-        margin-top: 30px;
-    }
-    .story-intro h3 {
-        font-size: 1.7rem;
-    }
-}
 /* --- Slideshow Styles --- */
 .slideshow-container {
     max-width: 1000px;
     position: relative;
     margin: auto;
   }
-  
+
   .mySlides {
     display: none;
     border-radius: 10px;
   }
-  
+
   .mySlides img {
     border-radius: 10px;
   }
-  
+
   .dot {
     cursor: pointer;
     height: 15px;
@@ -1288,17 +1271,17 @@ a:hover {
     display: inline-block;
     transition: background-color 0.6s ease;
   }
-  
+
   .active, .dot:hover {
     background-color: #717171;
   }
-  
+
   /* Fading animation */
   .fade {
     animation-name: fade;
     animation-duration: 1.5s;
   }
-  
+
   @keyframes fade {
     from {opacity: .4}
     to {opacity: 1}
@@ -1313,7 +1296,7 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
     /* Optional: Add a subtle background circle for emphasis */
-    background-color: var(--off-white); 
+    background-color: var(--off-white);
     padding: 10px;
     border-radius: 50%;
 }
@@ -1342,6 +1325,53 @@ a:hover {
 
 /* Optional: Make the icon color bright green on hover for a nice effect */
 .service-box:hover .service-icon {
-    color: var(--light-green); 
+    color: var(--light-green);
     background-color: var(--dark-blue);
+}
+#hero-image {
+    background-image: url('home_img.png');
+}
+
+#about-image {
+    background-image: url('20250923_1246_Rwandan Digital Empowerment_simple_compose_01k5v2t2mmejcv917twz9rf10w.png');
+}
+
+#team-member-1 {
+    background-image: url('1758625926946.png');
+}
+
+#team-member-2 {
+    background-image: url('1000515580.jpg');
+}
+
+#team-member-3 {
+    background-image: url('rusagusa.jpg');
+}
+
+#services-section {
+    background-image: url('pexels-steve-29586678.jpg');
+}
+
+#who-we-serve-section {
+    background-image: url('Gemini_Generated_Image_jvptkhjvptkhjvpt.png');
+}
+
+#slide1 {
+    width: 100%;
+}
+
+#slide2 {
+    width: 100%;
+}
+
+#slide3 {
+    width: 100%;
+}
+
+#slideshow-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+#faqs-section {
+    background-image: url('pexels-diva-29776737.jpg');
 }
