@@ -1345,3 +1345,23 @@ a:hover {
     color: var(--light-green); 
     background-color: var(--dark-blue);
 }
+.subsection-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--dark-blue);
+    margin-top: 60px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.price .period {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 400;
+}
+
+/* Adjust card padding for smaller feel if needed */
+.price-card {
+    padding: 30px 20px;
+}
+
