@@ -1,469 +1,462 @@
- <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
 <head>
-	<meta name="google-site-verification" content="SUL7Jj80mCsZcZCRjPU_3_rEkOqhJf6qBP_Nn4veueI" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rusagusa.jeix</title>
+    <title>rusagusa jean felix | Portfolio</title>
+    <meta name="google-site-verification" content="SUL7Jj80mCsZcZCRjPU_3_rEkOqhJf6qBP_Nn4veueI" />
+    
+    <!-- Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
-   <script src="https://cdn.tailwindcss.com"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function () {
-            emailjs.init({
-                publicKey: "XOjheaG3Lux01jxvp",
-            });
-        })();
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        sageGreen: '#4F6F52',
+                        tealBlue: '#A8DADC',
+                        charcoal: '#333333',
+                        softWhite: '#FAFAFA',
+                        offWhite: '#F5F5F5',
+                        coffee: '#FFDD00', 
+                    }
+                }
+            }
+        }
     </script>
-<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "XOjheaG3Lux01jxvp",
-      });
-   })();
-</script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --light-rgb: 255, 255, 255;
+            --thickness: 100px;
+            --outer-radius: 120px;
+            --brightness: 1;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.5s ease;
+        }
+
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px) saturate(120%);
+            -webkit-backdrop-filter: blur(16px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .dark .glass {
+            background: rgba(10, 10, 10, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-hidden {
+            transform: translateY(-120%);
+        }
+
+        /* Studio Overlay Math - Concentric Rounding */
+        #studio-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: none;
+            background: #000;
+        }
+
+        #light-frame {
+            position: absolute;
+            inset: 0;
+            background-color: rgb(var(--light-rgb));
+            filter: brightness(var(--brightness));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: var(--outer-radius);
+            transition: border-radius 0.2s ease-out;
+        }
+
+        #inner-void {
+            background-color: #000;
+            width: calc(100% - (var(--thickness) * 2));
+            height: calc(100% - (var(--thickness) * 2));
+            border-radius: calc(var(--outer-radius) - var(--thickness));
+            transition: all 0.15s ease-out;
+        }
+
+        .ui-hidden {
+            opacity: 0;
+            transform: translate(-50%, 40px) scale(0.98);
+            pointer-events: none;
+        }
+
+        /* Floating Studio Hint */
+        .studio-hint {
+            border: 2px solid #4F6F52;
+            box-shadow: 0 0 15px rgba(79, 111, 82, 0.3);
+        }
+
+        /* Lightbox Fade */
+        #lightbox {
+            transition: opacity 0.3s ease;
+        }
+        #lightbox.hidden {
+            pointer-events: none;
+            opacity: 0;
+        }
+        #lightbox:not(.hidden) {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
 </head>
-<body class="font-inter antialiased text-[#333333] bg-[#F5F5F5] min-h-screen">
-    
-    <!-- Navigation Bar -->
-    <nav class="fixed w-full z-10 bg-white shadow-md py-4 px-6 md:px-12 flex justify-between items-center">
-        <div class="text-2xl font-bold text-[#4F6F52]">rusagusa jean felix</div>
-        <div class="hidden md:flex space-x-8">
-            <a href="#home" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300">Home</a>
-            <a href="#projects" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300">Projects</a>
-            <a href="#resume" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300">Resume</a>
-            <a href="#blog" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300">Blog</a>
-            <a href="#gallery" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300">Gallery</a>
-            <a href="#contact" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300">Contact</a>
+<body class="bg-offWhite text-charcoal dark:bg-[#080808] dark:text-softWhite antialiased selection:bg-sageGreen selection:text-white">
+
+    <!-- Header -->
+    <header id="main-nav" class="fixed top-0 left-0 w-full z-[5000] transition-all duration-500 py-4 px-6 md:px-12 glass shadow-sm">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-lg font-bold tracking-tight text-sageGreen lowercase">rusagusa jean felix</div>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-[11px] font-medium tracking-wider opacity-70">
+                <a href="#home" class="hover:text-sageGreen transition-colors uppercase">Home</a>
+                <a href="#projects" class="hover:text-sageGreen transition-colors uppercase">Projects</a>
+                <a href="#studio" class="hover:text-sageGreen transition-colors uppercase">Studio</a>
+                <a href="#gallery" class="hover:text-sageGreen transition-colors uppercase">Gallery</a>
+                <a href="#resume" class="hover:text-sageGreen transition-colors uppercase">Resume</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button onclick="toggleTheme()" class="p-2 rounded-xl glass hover:bg-white/10 transition-colors">
+                    <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                    <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+                </button>
+                <a href="mailto:rusagusa.edu@gmail.com" class="bg-sageGreen/10 border border-sageGreen/20 text-sageGreen dark:text-tealBlue px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-wide hover:bg-sageGreen hover:text-white transition-all">
+                    Email Me
+                </a>
+            </div>
         </div>
-        <!-- Mobile menu button (can be expanded with actual mobile menu logic) -->
-        <div class="md:hidden">
-            <button class="text-[#333333] focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </div>
-    </nav>
-    
+    </header>
+
     <!-- Hero Section -->
-    <section id="home" class="relative pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-br from-white to-[#A8DADC] flex flex-col items-center justify-center text-center px-4">
+    <section id="home" class="min-h-screen flex flex-col items-center justify-center pt-20 px-6 text-center">
         <div class="max-w-4xl mx-auto">
-            <!-- Official Portrait -->
-            <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mx-auto mb-6 shadow-lg border-4 border-white">
-                <img
-                    src="Felix_021347~2.jpg"
-                    alt="Your Official Portrait"
-                    class="w-full h-full object-cover"
-                    onerror="this.onerror=null; this.src='https://placehold.co/400x400/F5F5F5/333333?text=Error';"
-                />
+            <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-[2rem] overflow-hidden mx-auto mb-10 shadow-xl border border-white/10 glass p-1">
+                <img src="Felix_021347~2.jpg" alt="rusagusa jean felix" class="w-full h-full object-cover rounded-[1.8rem] grayscale brightness-90 contrast-110" onerror="this.src='https://placehold.co/400x400/4F6F52/ffffff?text=felix'">
             </div>
             
-            <!-- Name and Tagline -->
-            <h1 class="text-4xl md:text-6xl font-extrabold text-[#4F6F52] mb-4 leading-tight">
-                Hi, I'm <span class="text-[#333333]">rusagusa jean felix</span>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-charcoal dark:text-softWhite mb-6">
+                Hi, I'm <span class="text-sageGreen lowercase">rusagusa jean felix</span>
             </h1>
-            <p class="text-xl md:text-2xl text-[#333333] mb-8">
-                A passionate <span class="font-semibold text-[#4F6F52]">computer enthusiast</span> building innovative solutions.
-            </p>
             
-            <!-- Pitch Video Placeholder 
-            <div class="w-full max-w-2xl mx-auto bg-gray-200 rounded-lg overflow-hidden shadow-xl mb-8 border border-gray-300 aspect-video flex items-center justify-center">
-                <i data-lucide="youtube" class="w-24 h-24 text-gray-500"></i>
-                <p class="absolute text-gray-700 text-lg font-medium">Your Pitch Video Here</p>
-                <!-- Replace this div with an actual iframe for your video: -->
-                <!--<iframe
-                    width="100%"
-                    height="100%"
-                    src="YOUR_YOUTUBE_EMBED_URL"
-                    title="Your Pitch Video"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    class="absolute top-0 left-0 w-full h-full"
-                ></iframe> -->
+            <p class="text-gray-600 dark:text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed font-light">
+                I am a computer enthusiast focused on engineering functional and high-utility digital systems.
+            </p>
+
+            <div class="glass p-6 rounded-3xl max-w-2xl mx-auto text-sm text-left border-l-4 border-sageGreen">
+                <p class="opacity-80 leading-relaxed">
+                    Welcome to my professional space. I specialize in utilizing modern software stacks and hardware interfaces to solve complex problems and build reliable digital experiences. Explore my projects and journey.
+                </p>
             </div>
             
-            <!-- Short Pitch/Intro -->
-            <p class="text-lg md:text-xl text-[#333333] max-w-3xl mx-auto mb-12">
-                Welcome to my professional space! I specialize in leveraging cutting-edge technologies to solve complex problems and create impactful digital experiences. Explore my projects, insights, and journey in the tech world.
-            </p>
-            
-            <!-- Call to Action Buttons -->
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a
-                    href="#projects"
-                    class="bg-[#4F6F52] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg transform hover:scale-105"
-                >
-                    View My Work
+            <div class="flex flex-wrap justify-center gap-5 mt-10">
+                <a href="#projects" class="bg-charcoal text-softWhite dark:bg-softWhite dark:text-charcoal px-8 py-4 rounded-2xl font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all">
+                    View Projects
                 </a>
-                <a
-                    href="#contact"
-                    class="bg-[#A8DADC] text-[#333333] px-8 py-3 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg transform hover:scale-105"
-                >
-                    Get in Touch
-                </a>
+                <button onclick="toggleStudio()" class="glass border border-sageGreen/30 text-sageGreen px-8 py-4 rounded-2xl font-bold text-xs uppercase tracking-wider hover:bg-sageGreen/10 transition-all flex items-center gap-2">
+                    Launch Studio <span class="bg-sageGreen text-[8px] text-white px-1.5 py-0.5 rounded-full uppercase">New</span>
+                </button>
             </div>
-        </div>
-    </section>
-    
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 md:py-24 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-bold text-center text-[#4F6F52] mb-12">
-                <i data-lucide="briefcase" class="inline-block mr-3 text-[#A8DADC]" style="width: 48px; height: 48px;"></i>
-                My Projects
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-xl font-semibold text-[#333333] mb-3">Elevator Simulation in Python</h3>
-                    <p class="text-gray-700 mb-4">Simulated a 10-floor elevator system using Python, incorporating random floor requests to model real-world elevator behavior.
-                         Utilized object-oriented programming and queue management to handle multiple passenger interactions efficiently.</p>
-                    <!--a href="#" class="text-[#4F6F52] hover:underline font-medium flex items-center">
-                        Learn More
-                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a-->
-                </div>
-                <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-xl font-semibold text-[#333333] mb-3">IP Address Change Handler in C Language</h3>
-                    <p class="text-gray-700 mb-4">Developed a lightweight system tool in C to monitor real-time IP address changes on a Linux machine. Leveraged low-level network interface querying to detect, log,
-                         and respond to IP modifications effectively</p>
-                    <!--a href="#" class="text-[#4F6F52] hover:underline font-medium flex items-center">
-                        Learn More
-                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a-->
-                </div>
-                <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-xl font-semibold text-[#333333] mb-3">Raspberry Pi-Based Thermometer System</h3>
-                    <p class="text-gray-700 mb-4">Engineered a temperature monitoring solution using Raspberry Pi and DS18B20 digital sensors. Implemented Python scripts to read sensor data, 
-                        log temperature readings periodically, and prepare the system for potential automation tasks.</p>
-                    <!--a href="#" class="text-[#4F6F52] hover:underline font-medium flex items-center">
-                        Learn More
-                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a-->
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Resume/CV Section -->
-    <section id="resume" class="py-16 md:py-24 px-6 bg-[#A8DADC] text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-bold text-[#333333] mb-8">
-                <i data-lucide="user" class="inline-block mr-3 text-[#4F6F52]" style="width: 48px; height: 48px;"></i>
-                My Resume & Professional Journey
-            </h2>
-            <p class="text-lg md:text-xl text-[#333333] mb-8">
-                Download my comprehensive resume to learn more about my skills, experience, and educational background.
-            </p>
-            <button id="download-cv-btn" class="bg-[#4F6F52] text-white px-10 py-4 rounded-full text-xl font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg transform hover:scale-105 flex items-center justify-center mx-auto"
-            >
-	
-		<a href = "RUSAGUSA Jean Felix resume v5.0.pdf">
-               <i data-lucide="download" class="mr-3" style="width: 24px; height: 24px;">
-		
-		</i>
-                Download CV (PDF)
-		</a>
-            </button>
         </div>
     </section>
 
-    <!-- Professional Moments & Certificates Section -->
-    <section id="certificates" class="py-16 md:py-24 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-bold text-center text-[#4F6F52] mb-12">
-                <i data-lucide="award" class="inline-block mr-3 text-[#A8DADC]" style="width: 48px; height: 48px;"></i>
-                Certifications
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-xl font-semibold text-[#333333] mb-2">Professional Foundations</h3>
-                    <p class="text-gray-700 mb-1">Issuer: ALX Africa</p>
-                    <p class="text-gray-600 text-sm">May 2025</p>
+    <!-- Projects -->
+    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-2xl md:text-4xl font-bold mb-16 text-charcoal dark:text-softWhite flex items-center gap-4">
+            <span class="w-8 h-px bg-sageGreen"></span> Selected Projects
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass p-8 rounded-[2rem] group hover:border-sageGreen/50 transition-all">
+                <h3 class="text-lg font-bold mb-3">Elevator Simulation</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-xs mb-6 leading-relaxed">Python-based model of a 10-floor concurrent system. Implements request-queue logic and behavioral optimization.</p>
+                <div class="flex gap-2">
+                    <span class="text-[9px] font-bold px-3 py-1 bg-sageGreen/10 text-sageGreen rounded-lg uppercase">Python</span>
+                    <span class="text-[9px] font-bold px-3 py-1 bg-sageGreen/10 text-sageGreen rounded-lg uppercase">OOP</span>
                 </div>
-                <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-xl font-semibold text-[#333333] mb-2">Rasperberry pi</h3>
-                    <p class="text-gray-700 mb-1">Issuer: Rasperberry pi</p>
-                    <p class="text-gray-600 text-sm">July 2025</p>
+            </div>
+            <div class="glass p-8 rounded-[2rem] group hover:border-sageGreen/50 transition-all">
+                <h3 class="text-lg font-bold mb-3">IP Handler Tool</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-xs mb-6 leading-relaxed">C-language system utility. Monitors network interfaces for real-time IP modifications on Linux kernels.</p>
+                <div class="flex gap-2">
+                    <span class="text-[9px] font-bold px-3 py-1 bg-sageGreen/10 text-sageGreen rounded-lg uppercase">C</span>
+                    <span class="text-[9px] font-bold px-3 py-1 bg-sageGreen/10 text-sageGreen rounded-lg uppercase">Linux</span>
                 </div>
-                <div class="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
-                    <h3 class="text-xl font-semibold text-[#333333] mb-2">Ethical hacking</h3>
-                    <p class="text-gray-700 mb-1">Issuer: Great Learning</p>
-                    <p class="text-gray-600 text-sm">February 2024</p>
+            </div>
+            <div class="glass p-8 rounded-[2rem] group hover:border-sageGreen/50 transition-all">
+                <h3 class="text-lg font-bold mb-3">IoT Thermal Monitor</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-xs mb-6 leading-relaxed">Raspberry Pi deployment using DS18B20 digital sensors. Handles periodic logging and thermal data processing.</p>
+                <div class="flex gap-2">
+                    <span class="text-[9px] font-bold px-3 py-1 bg-sageGreen/10 text-sageGreen rounded-lg uppercase">Hardware</span>
+                    <span class="text-[9px] font-bold px-3 py-1 bg-sageGreen/10 text-sageGreen rounded-lg uppercase">Pi</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Blog Section -->
-    <section id="blog" class="py-16 md:py-24 px-6 bg-[#F5F5F5]">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-bold text-center text-[#4F6F52] mb-12">
-                <i data-lucide="book-open" class="inline-block mr-3 text-[#A8DADC]" style="width: 48px; height: 48px;"></i>
-                My Blog & Insights
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Studio Section -->
+    <section id="studio" class="py-24 px-6 max-w-5xl mx-auto">
+        <div class="glass rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden border-sageGreen/20">
+            <div class="flex-1">
+                <div class="flex items-center gap-4 mb-6">
+                    <h2 class="text-3xl font-bold">Studio <span class="bg-sageGreen/20 text-sageGreen text-[10px] px-2 py-1 rounded-lg uppercase ml-2">Beta</span></h2>
+                </div>
+                <p class="text-gray-500 text-sm mb-8 leading-relaxed">
+                    A portable illumination utility for desktop displays. By rendering a high-luminance rounded frame along the screen perimeter, it creates professional catchlights and neutral facial lighting. A free utility for documentation and video conferencing.
+                </p>
                 
-                <!-- Blog Post 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2 cursor-pointer blog-card" data-post-id="3">
-                    <h3 class="text-xl font-semibold text-[#333333] mb-3">Computers are becoming more like us</h3>
-                    <p class="text-gray-700 mb-4 line-clamp-3">Every year, computers are getting better at doing things that used to be only for people. Talking, drawing, writing, even making music  computers can now help with all of these.
-
-                        But here’s the truth:
-                        Computers don’t want to replace people.
-                        They work best with people.
-                        
-                        I Believe Computers Should Help Everyone
-                        I believe the power of computers should reach every part of the world not just rich countries, not just big cities.
-                        A smart phone in a rural village should be just as powerful as a laptop in a big office. Knowledge should belong to everyone.
-                        
-                        The Real Power Is You
-                        Yes, I can write code, explain hard ideas, and help build cool projects.
-                        But the most important part of any computer system is you the human using it.
-                        
-                        You are the dreamer.
-                        You are the builder.
-                        You are the future.
-                        
-                        So here’s what I think:
-                        Computers will never be better than people at caring, dreaming, or believing.
-                        But together people and machines we can do amazing things.
-                        
-                         Keep learning. Keep building. I’ll be right here to help.</p>
-			
-                    <span class="text-[#4F6F52] hover:underline font-medium flex items-center">
-                        Read More
-                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </span>
-			
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Post Modal -->
-   
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-16 md:py-24 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-bold text-center text-[#4F6F52] mb-12">
-                <i data-lucide="image" class="inline-block mr-3 text-[#A8DADC]" style="width: 48px; height: 70px;"></i>
-                My Gallery
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Gallery Image 1 -->
-                <div class="relative group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer gallery-card"
-                     data-img-src="Felix_021347~2.jpg"
-                     data-img-alt="Project Showcase 1"
-                     data-img-desc="A screenshot of a dashboard from Project Alpha.">
-                    <img src="Felix_021347~2.jpg" alt="Project Showcase 1" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/F5F5F5/333333?text=Error';">
-                    <div class="absolute inset-0 bg-[#4F6F52] bg-opacity-0 group-hover:bg-opacity-70 flex items-center justify-center transition-all duration-300">
-                        <p class="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">Official potrait</p>
-                    </div>
-                </div>
-                <!-- Gallery Image 2 -->
-                <div class="relative group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer gallery-card"
-                     data-img-src="DSC01863~2.jpg"
-                     data-img-alt="Team Collaboration"
-                     data-img-desc="Working session with my development team.">
-                    <img src="DSC01863~2.jpg" alt="Team Collaboration" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/F5F5F5/333333?text=Error';">
-                    <div class="absolute inset-0 bg-[#4F6F52] bg-opacity-0 group-hover:bg-opacity-70 flex items-center justify-center transition-all duration-300">
-                        <p class="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">Working session with my team at arduino workshop.</p>
-                    </div>
-                </div>
-                <!-- Gallery Image 3 -->
-                <div class="relative group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer gallery-card"
-                     data-img-src="Copy of alx-headshots-25 (1) (1).jpg"
-                     data-img-alt="Certificate Award"
-                     data-img-desc="Receiving my Certified Cloud Architect certificate.">
-                    <img src="Copy of alx-headshots-25 (1) (1).jpg" alt="Certificate Award" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/F5F5F5/333333?text=Error';">
-                    <div class="absolute inset-0 bg-[#4F6F52] bg-opacity-0 group-hover:bg-opacity-70 flex items-center justify-center transition-all duration-300">
-                        <p class="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">Head shot</p>
-                    </div>
-                </div>
-                <!-- Gallery Image 4 -->
-                <div class="relative group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer gallery-card"
-                     data-img-src="DSC02121~2.jpg"
-                     data-img-alt="Tech Event"
-                     data-img-desc="Networking at a local tech conference.">
-                    <img src="DSC02121~2.jpg" alt="Tech Event" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/F5F5F5/333333?text=Error';">
-                    <div class="absolute inset-0 bg-[#4F6F52] bg-opacity-0 group-hover:bg-opacity-70 flex items-center justify-center transition-all duration-300">
-                        <p class="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">Project pitching at K-lab.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Image Modal -->
-    
-    <div id="gallery-modal" class="modal fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 invisible opacity-0">
-        <div class="bg-white rounded-lg p-4 max-w-4xl w-full relative shadow-2xl">
-            <button id="close-gallery-modal" class="absolute top-4 right-4 text-gray-600 hover:text-gray-900 transition-colors duration-200"><i data-lucide="x" class="w-8 h-8"></i></button>
-            <img id="gallery-modal-img" src="" alt="" class="w-full h-auto max-h-[70vh] object-contain rounded-lg mb-4">
-            <p id="gallery-modal-desc" class="text-center text-gray-800 text-lg"></p>
-        </div>
-    </div>
-    
-    <!-- Contact & Socials Section -->
-    <section id="contact" class="py-16 md:py-24 px-6 bg-[#A8DADC] text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-bold text-[#333333] mb-8">
-                Let's Connect!
-            </h2>
-            <p class="text-lg md:text-xl text-[#333333] mb-12">
-                I'm always open to new opportunities, collaborations, and conversations. Feel free to reach out!
-            </p>
-            
-            <div class="flex flex-col items-center space-y-6 mb-12">
-                <!-- Email -->
-                <a href="mailto:your.email@example.com" class="flex items-center text-[#333333] text-xl md:text-2xl hover:text-[#4F6F52] transition-colors duration-300 group">
-                    <i data-lucide="mail" class="mr-4 text-[#4F6F52] group-hover:text-[#333333] transition-colors duration-300" style="width: 32px; height: 32px;"></i>
-                    rusagusa.edu@gmail.com
-                </a>
-                
-                <!-- Social Media Links -->
-                <div class="flex space-x-8">
-                    <a href="https://linkedin.com/in/RUSAGUAS Jean Felix" target="_blank" rel="noopener noreferrer" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300 transform hover:scale-110">
-                        <i data-lucide="linkedin" style="width: 40px; height: 40px;"></i>
-                    </a>
-                    <a href="https://github.com/rusagusa" target="_blank" rel="noopener noreferrer" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300 transform hover:scale-110">
-                        <i data-lucide="github" style="width: 40px; height: 40px;"></i>
-                    </a>
-                    <a href="https://twitter.com/rusagusa" target="_blank" rel="noopener noreferrer" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300 transform hover:scale-110">
-                        <i data-lucide="twitter" style="width: 40px; height: 40px;"></i>
-                    </a>
-                    <a href="https://instagram.com/rusagusa_jean_felix" target="_blank" rel="noopener noreferrer" class="text-[#333333] hover:text-[#4F6F52] transition-colors duration-300 transform hover:scale-110">
-                        <i data-lucide="instagram" style="width: 40px; height: 40px;"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Contact Form -->
-            <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-xl">
-                <h3 class="text-2xl font-bold text-[#4F6F52] mb-6">Send a Message</h3>
-                <form id="contact-form" class="space-y-4">
-                    <div>
-                        <input type="text" name="user_name" placeholder="Your Name" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-[#4F6F52] focus:border-transparent transition-all duration-200" required>
-                    </div>
-                    <div>
-                        <input type="email" name="user_email" placeholder="Your Email" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-[#4F6F52] focus:border-transparent transition-all duration-200" required>
-                    </div>
-                    <div>
-                        <textarea name="message" placeholder="Your Message" rows="5" class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-[#4F6F52] focus:border-transparent transition-all duration-200 resize-y" required></textarea>
-                    </div>
-                    <button type="submit" class="bg-[#4F6F52] text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 shadow-md transform hover:scale-105" id="submit-btn">
-                        Send Message
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="toggleStudio()" class="bg-sageGreen text-white px-8 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:scale-105 transition-all">
+                        Launch Studio
                     </button>
-                    <!-- Status message container -->
-                    <div id="form-status" class="mt-2 text-center font-medium"></div>
-                </form>
+                    <!-- Buy Me a Coffee Button -->
+                    <a href="https://www.buymeacoffee.com/rusagusa" target="_blank" class="glass px-6 py-4 rounded-2xl font-bold text-xs flex items-center gap-2 hover:bg-yellow-400/10 hover:text-yellow-400 transition-all border-white/10">
+                        <i data-lucide="coffee" class="w-4 h-4"></i> Buy me a coffee
+                    </a>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-64 aspect-square glass rounded-[2rem] border-2 border-sageGreen flex items-center justify-center relative overflow-hidden group">
+                <div class="w-4/5 h-4/5 border-4 border-sageGreen/50 rounded-2xl animate-pulse"></div>
+                <i data-lucide="sparkles" class="absolute text-sageGreen w-10 h-10 group-hover:rotate-45 transition-transform"></i>
             </div>
         </div>
     </section>
-    
-    <!-- Footer -->
-    <footer class="bg-[#333333] text-white py-8 text-center text-sm">
+
+    <!-- Credentials -->
+    <section id="resume" class="py-24 px-6 max-w-7xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-12 opacity-50 uppercase tracking-widest">Certifications</h2>
+        <div class="flex flex-wrap justify-center gap-4">
+            <div class="glass px-6 py-4 rounded-2xl border-white/5"><span class="text-xs font-bold">AWS Cloud Practitioner</span></div>
+            <div class="glass px-6 py-4 rounded-2xl border-white/5"><span class="text-xs font-bold">Arduino Uno Certified</span></div>
+            <div class="glass px-6 py-4 rounded-2xl border-white/5"><span class="text-xs font-bold">ALX Africa Foundations</span></div>
+            <div class="glass px-6 py-4 rounded-2xl border-white/5"><span class="text-xs font-bold">Ethical Hacking</span></div>
+        </div>
+        <div class="mt-12">
+            <a href="RUSAGUSA Jean Felix resume v5.0.pdf" download class="inline-flex items-center gap-3 text-sageGreen hover:underline font-bold text-sm uppercase tracking-wide">
+                <i data-lucide="download" class="w-4 h-4"></i> Download Full Resume
+            </a>
+        </div>
+    </section>
+
+    <!-- Gallery Bento Grid -->
+    <section id="gallery" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center">Gallery</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
+            <!-- Tall Portrait -->
+            <div class="group relative md:col-span-1 md:row-span-2 rounded-[2rem] overflow-hidden cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="Felix_021347~2.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Official Portrait">
+                <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <p class="text-white text-sm font-bold">Official Portrait</p>
+                </div>
+            </div>
+
+            <!-- Quote Block -->
+            <div class="md:col-span-2 rounded-[2rem] bg-sageGreen p-8 flex flex-col justify-center items-center text-white text-center">
+                <i data-lucide="quote" class="w-8 h-8 opacity-30 mb-4"></i>
+                <p class="text-xl font-bold italic leading-tight">"Integrating machine logic with human dreaming."</p>
+            </div>
+
+            <!-- Standard -->
+            <div class="group relative rounded-[2rem] overflow-hidden cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="Copy of alx-headshots-25 (1) (1).jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Headshot">
+                <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <p class="text-white text-sm font-bold">Headshot</p>
+                </div>
+            </div>
+
+            <!-- Wide Item -->
+            <div class="group relative md:col-span-2 rounded-[2rem] overflow-hidden cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="DSC01863~2.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Arduino Workshop">
+                <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <p class="text-white text-sm font-bold">Arduino Workshop Collaboration</p>
+                </div>
+            </div>
+
+            <!-- Standard -->
+            <div class="group relative rounded-[2rem] overflow-hidden cursor-zoom-in" onclick="openLightbox(this)">
+                <img src="DSC02121~2.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Pitch Event">
+                <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <p class="text-white text-sm font-bold">Project Pitching</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restored Footer -->
+    <footer class="bg-charcoal text-white py-12 text-center text-sm mt-20">
         <div class="max-w-6xl mx-auto px-6">
             <p>&copy; 2024 rusagusa.edu. All rights reserved.</p>
-            <p class="mt-2">Designed and Built with ❤️ by rusagusa</p>
+            <p class="mt-2 text-gray-400">Designed and Built with ❤️ by <span class="lowercase">rusagusa</span></p>
             
-            <!-- Optional Ads Section -->
-            <div class="mt-6 p-4 bg-gray-700 rounded-lg text-gray-300 text-xs">
-                <p class="font-semibold mb-2">Ads</p>
+            <!-- Support Link -->
+             <div class="mt-4">
+                <a href="https://www.buymeacoffee.com/rusagusa" target="_blank" class="text-tealBlue hover:text-white transition-colors text-xs font-bold flex items-center justify-center gap-2">
+                    <i data-lucide="coffee" class="w-3 h-3"></i> Buy Me a Coffee
+                </a>
+            </div>
+
+            <!-- Restored Ads Section -->
+            <div class="mt-8 p-6 bg-white/5 border border-white/10 rounded-2xl text-gray-400 text-xs max-w-md mx-auto">
+                <p class="font-bold mb-2 uppercase tracking-widest opacity-50">Ads</p>
                 <p>This place is reserved for advertizements</p>
             </div>
         </div>
     </footer>
-    
-      <script>
-    document.addEventListener('DOMContentLoaded', () => {
-                lucide.createIcons();
-            });
 
+    <!-- Floating Trigger -->
+    <button onclick="toggleStudio()" class="fixed bottom-8 right-8 z-[4000] studio-hint w-14 h-14 bg-black/60 backdrop-blur-xl rounded-2xl flex flex-col items-center justify-center group overflow-hidden transition-all">
+        <div class="w-3/5 h-3/5 border border-sageGreen rounded-lg group-hover:scale-110 transition-transform flex items-center justify-center">
+            <span class="text-[6px] text-sageGreen font-black uppercase tracking-wider">Studio</span>
+        </div>
+    </button>
 
-     window.onload = function () {
-  const form = document.getElementById("contact-form");
+    <!-- Studio Glow Overlay -->
+    <div id="studio-overlay">
+        <div id="light-frame">
+            <div id="inner-void"></div>
+        </div>
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
+        <button onclick="toggleStudio()" class="fixed top-8 right-8 z-[10001] bg-black/40 backdrop-blur-xl border border-white/20 text-white px-8 py-3 rounded-full font-bold text-[10px] tracking-widest uppercase hover:bg-white hover:text-black transition-all">
+            Exit Studio
+        </button>
 
-    const serviceID = "service_85yn1hq";
-    const templateID = "template_sst7j36";
-    const publicKey = "XOjheaG3Lux01jxvp";
+        <div id="ui-panel" class="fixed bottom-12 left-1/2 -translate-x-1/2 glass p-10 rounded-[3rem] flex flex-col items-center gap-8 shadow-2xl transition-all duration-500">
+            <div class="text-center">
+                <h3 class="text-[11px] font-bold tracking-[0.4em] text-white opacity-40 mb-2 uppercase">Studio Controller</h3>
+                <div class="bg-sageGreen/20 px-4 py-2 rounded-xl border border-sageGreen/30 mb-2">
+                    <p class="text-[9px] font-bold text-sageGreen uppercase tracking-widest">Pro Tip: Unplug charger & use F11 for Max Lux</p>
+                </div>
+            </div>
 
-    emailjs.sendForm(serviceID, templateID, this, publicKey)
-      .then(() => {
-        alert("Message sent successfully!");
-        form.reset();
-      }, (error) => {
-        alert("Failed to send message: " + error.text);
-      });
-  });
-};
+            <div class="flex flex-wrap justify-center gap-10">
+                <div class="flex flex-col items-center gap-4 text-white">
+                    <span class="text-[8px] font-bold opacity-30 uppercase tracking-widest">Size</span>
+                    <input type="range" id="thickRange" min="10" max="450" value="100" class="w-24 accent-white">
+                </div>
+                <div class="flex flex-col items-center gap-4 text-white">
+                    <span class="text-[8px] font-bold opacity-30 uppercase tracking-widest">Radius</span>
+                    <input type="range" id="roundRange" min="0" max="600" value="150" class="w-24 accent-white">
+                </div>
+                <div class="flex flex-col items-center gap-4 text-white">
+                    <span class="text-[8px] font-bold opacity-30 uppercase tracking-widest">Warmth</span>
+                    <input type="range" id="tempRange" min="0" max="100" value="35" class="w-24 accent-white">
+                </div>
+                <div class="flex flex-col items-center gap-4 text-white">
+                    <span class="text-[8px] font-bold opacity-30 uppercase tracking-widest">Lux</span>
+                    <input type="range" id="brightRange" min="10" max="100" value="100" class="w-24 accent-white">
+                </div>
+                <button id="flood-btn" class="bg-sageGreen text-white px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest">Flood</button>
+            </div>
+        </div>
+    </div>
 
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-[6000] bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white hover:text-sageGreen transition-colors">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <img id="lightbox-img" src="" class="max-w-full max-h-[90vh] rounded-xl shadow-2xl object-contain" onclick="event.stopPropagation()">
+    </div>
 
-  const blogPosts = {
-    1: {
-      title: "How I built my portfolio",
-      content: "I started from scratch using HTML, CSS, and Tailwind. Then I improved it section by section, adding a gallery, contact form, and responsiveness."
-    },
-    2: {
-      title: "The tools I use daily",
-      content: "I use VS Code, GitHub, ChatGPT, and Figma. My daily workflow includes project planning, coding, testing, and design review."
-    }
-  };
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            // Force dark mode as default
+            document.documentElement.classList.add('dark');
+        });
 
-  document.querySelectorAll('[data-post-id]').forEach(card => {
-    card.addEventListener('click', () => {
-      const id = card.getAttribute('data-post-id');
-      const post = blogPosts[id];
-      document.getElementById('modalTitle').innerText = post.title;
-      document.getElementById('modalContent').innerText = post.content;
-      document.getElementById('modal').classList.remove('hidden');
-    });
-  });
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+        }
 
-  document.getElementById('closeModal').addEventListener('click', () => {
-    document.getElementById('modal').classList.add('hidden');
-  });
+        // Smart Header
+        let lastScrollTop = 0;
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop && st > 150) {
+                nav.classList.add('nav-hidden');
+            } else {
+                nav.classList.remove('nav-hidden');
+            }
+            lastScrollTop = st <= 0 ? 0 : st;
+        });
 
-  
-  const galleryModal = document.getElementById('gallery-modal');
-            const closeGalleryModalBtn = document.getElementById('close-gallery-modal');
-            const galleryModalImg = document.getElementById('gallery-modal-img');
-            const galleryModalDesc = document.getElementById('gallery-modal-desc');
+        // Studio Logic
+        const overlay = document.getElementById('studio-overlay');
+        const ui = document.getElementById('ui-panel');
+        const voidArea = document.getElementById('inner-void');
+        const frame = document.getElementById('light-frame');
 
-            document.addEventListener('click', (e) => {
-                const galleryCard = e.target.closest('.gallery-card');
-                if (galleryCard) {
-                    const imgSrc = galleryCard.dataset.imgSrc;
-                    const imgDesc = galleryCard.dataset.imgDesc;
-                    galleryModalImg.src = imgSrc;
-                    galleryModalImg.alt = imgDesc;
-                    galleryModalDesc.textContent = imgDesc;
-                    galleryModal.classList.remove('invisible');
-                    galleryModal.classList.add('visible');
-                }
-            });
-            closeGalleryModalBtn.addEventListener('click', () => { galleryModal.classList.remove('visible'); galleryModal.classList.add('invisible'); });
-            galleryModal.addEventListener('click', (e) => { if (e.target.id === 'gallery-modal') closeGalleryModalBtn.click(); });
+        function toggleStudio() {
+            const isVisible = overlay.style.display === 'block';
+            overlay.style.display = isVisible ? 'none' : 'block';
+            document.body.style.overflow = isVisible ? 'auto' : 'hidden';
+            if (!isVisible) updateLight();
+        }
 
+        function updateLight() {
+            const thickness = document.getElementById('thickRange').value;
+            const radius = document.getElementById('roundRange').value;
+            const temp = document.getElementById('tempRange').value;
+            const bright = document.getElementById('brightRange').value / 100;
+
+            let r = 255, g = 255 - (temp * 0.4), b = 255 - ((100 - temp) * 0.45);
+
+            document.documentElement.style.setProperty('--thickness', thickness + 'px');
+            document.documentElement.style.setProperty('--outer-radius', radius + 'px');
+            document.documentElement.style.setProperty('--light-rgb', `${r}, ${g}, ${b}`);
+            document.documentElement.style.setProperty('--brightness', bright);
+            frame.style.borderRadius = radius + 'px';
+        }
+
+        overlay.addEventListener('click', (e) => {
+            if (!ui.contains(e.target) && e.target.id !== 'flood-btn') {
+                ui.classList.toggle('ui-hidden');
+            }
+        });
+
+        document.getElementById('flood-btn').addEventListener('click', (e) => {
+            const isFlood = voidArea.style.opacity === '0';
+            voidArea.style.opacity = isFlood ? '1' : '0';
+            e.target.innerText = isFlood ? "Flood" : "Frame";
+            e.stopPropagation();
+        });
+
+        document.querySelectorAll('#studio-overlay input').forEach(i => {
+            i.addEventListener('input', updateLight);
+            i.addEventListener('click', (e) => e.stopPropagation());
+        });
+
+        // Lightbox Logic
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            lightboxImg.src = img.src;
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
     </script>
 </body>
-
 </html>
-
-
