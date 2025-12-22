@@ -113,15 +113,28 @@
             opacity: 1;
             pointer-events: auto;
         }
+        
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-offWhite text-charcoal dark:bg-[#080808] dark:text-softWhite antialiased selection:bg-sageGreen selection:text-white">
 
     <!-- Header -->
-    <header id="main-nav" class="fixed top-0 left-0 w-full z-[5000] transition-all duration-500 py-4 px-6 md:px-12 glass shadow-sm">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <header id="main-nav" class="fixed top-0 left-0 w-full z-[5000] transition-all duration-500 glass shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex justify-between items-center">
             <div class="text-lg font-bold tracking-tight text-sageGreen lowercase">rusagusa jean felix</div>
             
+            <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center space-x-8 text-[11px] font-medium tracking-wider opacity-70">
                 <a href="#home" class="hover:text-sageGreen transition-colors uppercase">Home</a>
                 <a href="#projects" class="hover:text-sageGreen transition-colors uppercase">Projects</a>
@@ -135,10 +148,27 @@
                     <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
                     <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
                 </button>
-                <a href="mailto:rusagusa.edu@gmail.com" class="bg-sageGreen/10 border border-sageGreen/20 text-sageGreen dark:text-tealBlue px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-wide hover:bg-sageGreen hover:text-white transition-all">
+                <a href="mailto:rusagusa.edu@gmail.com" class="hidden md:inline-block bg-sageGreen/10 border border-sageGreen/20 text-sageGreen dark:text-tealBlue px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-wide hover:bg-sageGreen hover:text-white transition-all">
                     Email Me
                 </a>
+                
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-charcoal dark:text-white hover:text-sageGreen transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
             </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-xl border-t border-gray-100 dark:border-white/5">
+            <nav class="flex flex-col p-6 space-y-4 text-center text-sm font-bold uppercase tracking-widest">
+                <a href="#home" onclick="toggleMobileMenu()" class="hover:text-sageGreen py-2">Home</a>
+                <a href="#projects" onclick="toggleMobileMenu()" class="hover:text-sageGreen py-2">Projects</a>
+                <a href="#studio" onclick="toggleMobileMenu()" class="hover:text-sageGreen py-2">Studio</a>
+                <a href="#gallery" onclick="toggleMobileMenu()" class="hover:text-sageGreen py-2">Gallery</a>
+                <a href="#resume" onclick="toggleMobileMenu()" class="hover:text-sageGreen py-2">Resume</a>
+                <a href="mailto:rusagusa.edu@gmail.com" class="text-sageGreen py-2">Email Me</a>
+            </nav>
         </div>
     </header>
 
@@ -157,8 +187,8 @@
                 I am a computer enthusiast focused on engineering functional and high-utility digital systems.
             </p>
 
-            <div class="glass p-6 rounded-3xl max-w-2xl mx-auto text-sm text-left border-l-4 border-sageGreen">
-                <p class="opacity-80 leading-relaxed">
+            <div class="bg-white/50 dark:glass border border-gray-200 dark:border-white/5 p-6 rounded-3xl max-w-2xl mx-auto text-sm text-left border-l-4 border-l-sageGreen shadow-sm dark:shadow-none">
+                <p class="opacity-90 dark:opacity-80 leading-relaxed text-charcoal dark:text-gray-300">
                     Welcome to my professional space. I specialize in utilizing modern software stacks and hardware interfaces to solve complex problems and build reliable digital experiences. Explore my projects and journey.
                 </p>
             </div>
@@ -239,16 +269,95 @@
     <!-- Credentials -->
     <section id="resume" class="py-24 px-6 max-w-7xl mx-auto text-center">
         <h2 class="text-2xl font-bold mb-12 opacity-50 uppercase tracking-widest">Certifications</h2>
-        <div class="flex flex-wrap justify-center gap-4">
-            <div class="glass px-6 py-4 rounded-2xl border-white/5"><span class="text-xs font-bold">AWS Cloud Practitioner</span></div>
-            <div class="glass px-6 py-4 rounded-2xl border-white/5"><span class="text-xs font-bold">Arduino Uno Certified</span></div>
-            <div class="glass px-6 py-4 rounded-2xl border-white/5"><span class="text-xs font-bold">ALX Africa Foundations</span></div>
-            <div class="glass px-6 py-4 rounded-2xl border-white/5"><span class="text-xs font-bold">Ethical Hacking</span></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+            <!-- AWS -->
+            <div class="bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 p-8 rounded-[2rem] hover:border-sageGreen transition-all group shadow-sm">
+                <div class="w-10 h-10 bg-sageGreen/10 rounded-xl flex items-center justify-center mb-6 text-sageGreen group-hover:bg-sageGreen group-hover:text-white transition-colors">
+                    <i data-lucide="cloud" class="w-5 h-5"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-1">AWS Cloud Practitioner</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Amazon Web Services</p>
+                <div class="mt-4 pt-4 border-t border-gray-100 dark:border-white/5 flex justify-between items-center text-[10px] font-bold uppercase tracking-wider opacity-60">
+                    <span>Issued 2025</span>
+                    <i data-lucide="check-circle" class="w-3 h-3 text-sageGreen"></i>
+                </div>
+            </div>
+
+            <!-- Arduino -->
+            <div class="bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 p-8 rounded-[2rem] hover:border-sageGreen transition-all group shadow-sm">
+                <div class="w-10 h-10 bg-tealBlue/10 rounded-xl flex items-center justify-center mb-6 text-tealBlue group-hover:bg-tealBlue group-hover:text-white transition-colors">
+                    <i data-lucide="cpu" class="w-5 h-5"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-1">Arduino Uno Certified</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Arduino</p>
+                <div class="mt-4 pt-4 border-t border-gray-100 dark:border-white/5 flex justify-between items-center text-[10px] font-bold uppercase tracking-wider opacity-60">
+                    <span>Issued 2025</span>
+                    <i data-lucide="check-circle" class="w-3 h-3 text-tealBlue"></i>
+                </div>
+            </div>
+
+            <!-- ALX -->
+            <div class="bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 p-8 rounded-[2rem] hover:border-sageGreen transition-all group shadow-sm">
+                <div class="w-10 h-10 bg-sageGreen/10 rounded-xl flex items-center justify-center mb-6 text-sageGreen group-hover:bg-sageGreen group-hover:text-white transition-colors">
+                    <i data-lucide="award" class="w-5 h-5"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-1">Professional Foundations</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">ALX Africa</p>
+                <div class="mt-4 pt-4 border-t border-gray-100 dark:border-white/5 flex justify-between items-center text-[10px] font-bold uppercase tracking-wider opacity-60">
+                    <span>Issued 2025</span>
+                    <i data-lucide="check-circle" class="w-3 h-3 text-sageGreen"></i>
+                </div>
+            </div>
+
+             <!-- Raspberry Pi -->
+             <div class="bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 p-8 rounded-[2rem] hover:border-sageGreen transition-all group shadow-sm">
+                <div class="w-10 h-10 bg-tealBlue/10 rounded-xl flex items-center justify-center mb-6 text-tealBlue group-hover:bg-tealBlue group-hover:text-white transition-colors">
+                    <i data-lucide="microchip" class="w-5 h-5"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-1">Raspberry Pi Systems</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Raspberry Pi Foundation</p>
+                <div class="mt-4 pt-4 border-t border-gray-100 dark:border-white/5 flex justify-between items-center text-[10px] font-bold uppercase tracking-wider opacity-60">
+                    <span>Issued 2025</span>
+                    <i data-lucide="check-circle" class="w-3 h-3 text-tealBlue"></i>
+                </div>
+            </div>
+
+             <!-- Hacking -->
+             <div class="bg-white dark:bg-white/5 border border-gray-100 dark:border-white/10 p-8 rounded-[2rem] hover:border-sageGreen transition-all group shadow-sm">
+                <div class="w-10 h-10 bg-sageGreen/10 rounded-xl flex items-center justify-center mb-6 text-sageGreen group-hover:bg-sageGreen group-hover:text-white transition-colors">
+                    <i data-lucide="shield" class="w-5 h-5"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-1">Ethical Hacking</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Great Learning</p>
+                <div class="mt-4 pt-4 border-t border-gray-100 dark:border-white/5 flex justify-between items-center text-[10px] font-bold uppercase tracking-wider opacity-60">
+                    <span>Issued 2024</span>
+                    <i data-lucide="check-circle" class="w-3 h-3 text-sageGreen"></i>
+                </div>
+            </div>
+
         </div>
-        <div class="mt-12">
-            <a href="RUSAGUSA Jean Felix resume v5.0.pdf" download class="inline-flex items-center gap-3 text-sageGreen hover:underline font-bold text-sm uppercase tracking-wide">
-                <i data-lucide="download" class="w-4 h-4"></i> Download Full Resume
-            </a>
+        
+        <!-- Socials & Connect -->
+        <div class="mt-24 max-w-4xl mx-auto">
+            <h3 class="text-xl font-bold mb-8">Connect With Me</h3>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://instagram.com/rusagusa_jean_felix" target="_blank" class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 px-6 py-4 rounded-2xl flex items-center gap-3 hover:border-sageGreen hover:text-sageGreen transition-all group">
+                    <i data-lucide="instagram" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-bold">Instagram</span>
+                </a>
+                <a href="https://github.com/rusagusa" target="_blank" class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 px-6 py-4 rounded-2xl flex items-center gap-3 hover:border-sageGreen hover:text-sageGreen transition-all group">
+                    <i data-lucide="github" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-bold">GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/rusagusa-jean-felix" target="_blank" class="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 px-6 py-4 rounded-2xl flex items-center gap-3 hover:border-sageGreen hover:text-sageGreen transition-all group">
+                    <i data-lucide="linkedin" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-bold">LinkedIn</span>
+                </a>
+                <a href="RUSAGUSA Jean Felix resume v5.0.pdf" download class="bg-charcoal dark:bg-white text-white dark:text-charcoal px-6 py-4 rounded-2xl flex items-center gap-3 hover:scale-105 transition-all">
+                    <i data-lucide="download" class="w-5 h-5"></i>
+                    <span class="text-sm font-bold">Download CV</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -381,6 +490,16 @@
 
         function toggleTheme() {
             document.documentElement.classList.toggle('dark');
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('open')) {
+                menu.classList.remove('open');
+            } else {
+                menu.classList.add('open');
+            }
         }
 
         // Smart Header
