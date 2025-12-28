@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uburiza Solutions - Digital Marketing, Training & Creative Media</title>
+     <link rel="icon" href="ubuliza_logo.PNG" type="image/PNG">
     <meta name="description" content="Uburiza Solutions empowers Rwandan businesses with digital marketing, tech training, and creative media services. We work with startups, SMEs, and corporate organizations.">
     <meta name="keywords" content="Uburiza Solutions, digital marketing Rwanda, website design Kigali, corporate training, digital literacy, social media management, SEO, creative media, Uburiza Green Initiative">
     <link rel="stylesheet" href="style.css">
@@ -13,10 +14,9 @@
 </head>
 <body>
 
-
 <header class="header">
     <div class="container">
-        <a href="#" class="logo">
+        <a href="#home" class="logo">
             <img src="ubuliza_logo.PNG" alt="Uburiza Solutions Logo">
         </a>
         <div class="menu-toggle" id="menu-toggle">
@@ -85,20 +85,20 @@
                         <div class="headshot" style="background-image: url('1758625926946.png');"></div>
                     </div>
                     <h4>IRADUKUNDA Derrick</h4>
-                    <p>Co-founder and CEO</p>
+                    <p>Chief Executive Officer</p>
                 </div>
               <div class="team-member-card">
                     <div class="headshot-frame">
                         <div class="headshot" style="background-image: url('1000515580.jpg');"></div>
                     </div>
                     <h4>Rwamuhizi Karim</h4>
-                    <p>Co-founder and business innovation lead</p>
+                    <p>Business innovation lead</p>
                 </div>
                 <div class="team-member-card">
                     <div class="headshot-frame">
                         <div class="headshot" style="background-image: url('rusagusa.jpg');"></div>
                     </div>
-                    <h4>rusagusa jean Felix</h4>
+                    <h4>rusagusa jean felix</h4>
                     <p>Lead Developer</p>
                 </div>
             </div>
@@ -151,7 +151,7 @@
             
             <h2 class="section-title">Pricing & Packages</h2>
             
-            <h3 class="subsection-title">1. Digital Marketing</h3>
+            <h3 class="subsection-title" style="text-align: center; color: #0E294B; margin-top: 40px;">1. Digital Marketing</h3>
             <div class="price-cards-row">
                 <div class="price-card">
                     <h3>Starter</h3>
@@ -162,7 +162,7 @@
                         <li><i class="fas fa-check-circle"></i> Page management</li>
                         <li><i class="fas fa-check-circle"></i> Monthly report</li>
                     </ul>
-                    <a href="#appointment" class="cta-button">Select Plan</a>
+                    <a href="#appointment" onclick="selectService('Digital Marketing Starter')" class="cta-button">Select Plan</a>
                 </div>
                 <div class="price-card popular">
                     <h3>Growth</h3>
@@ -173,7 +173,7 @@
                         <li><i class="fas fa-check-circle"></i> Ads setup</li>
                         <li><i class="fas fa-check-circle"></i> Bi-weekly report</li>
                     </ul>
-                    <a href="#appointment" class="cta-button">Select Plan</a>
+                    <a href="#appointment" onclick="selectService('Digital Marketing Growth')" class="cta-button">Select Plan</a>
                 </div>
                 <div class="price-card">
                     <h3>Premium</h3>
@@ -184,11 +184,11 @@
                         <li><i class="fas fa-check-circle"></i> Advanced ads</li>
                         <li><i class="fas fa-check-circle"></i> Weekly reports</li>
                     </ul>
-                    <a href="#appointment" class="cta-button">Select Plan</a>
+                    <a href="#appointment" onclick="selectService('Digital Marketing Premium')" class="cta-button">Select Plan</a>
                 </div>
             </div>
 
-            <h3 class="subsection-title">2. AI Automation & Smart Systems</h3>
+            <h3 class="subsection-title" style="text-align: center; color: #0E294B; margin-top: 40px;">2. AI Automation & Smart Systems</h3>
             <div class="price-cards-row">
                 <div class="price-card">
                     <h3>AI Starter</h3>
@@ -196,34 +196,33 @@
                     <ul>
                         <li><i class="fas fa-check-circle"></i> Email automation</li>
                         <li><i class="fas fa-check-circle"></i> Simple chatbot setup</li>
-                        <li><i class="fas fa-check-circle"></i> Auto-responses (WhatsApp/Socials)</li>
+                        <li><i class="fas fa-check-circle"></i> Auto-responses</li>
                     </ul>
-                    <a href="#appointment" class="cta-button">Select Plan</a>
+                    <a href="#appointment" onclick="selectService('AI Starter')" class="cta-button">Select Plan</a>
                 </div>
                 <div class="price-card popular">
                     <h3>AI Business</h3>
                     <p class="price">250,000 RWF</p>
                     <ul>
-                        <li><i class="fas fa-check-circle"></i> Workflow & Support automation</li>
+                        <li><i class="fas fa-check-circle"></i> Workflow automation</li>
                         <li><i class="fas fa-check-circle"></i> Data entry automation</li>
                         <li><i class="fas fa-check-circle"></i> AI-generated reports</li>
                     </ul>
-                    <a href="#appointment" class="cta-button">Select Plan</a>
+                    <a href="#appointment" onclick="selectService('AI Business')" class="cta-button">Select Plan</a>
                 </div>
                 <div class="price-card">
                     <h3>AI Pro</h3>
                     <p class="price">450,000 RWF</p>
                     <ul>
                         <li><i class="fas fa-check-circle"></i> Full business automation</li>
-                        <li><i class="fas fa-check-circle"></i> Integrations (CRM, Web, Tools)</li>
+                        <li><i class="fas fa-check-circle"></i> Integrations (CRM, Web)</li>
                         <li><i class="fas fa-check-circle"></i> Advanced AI dashboards</li>
-                        <li><i class="fas fa-check-circle"></i> Staff training on AI tools</li>
                     </ul>
-                    <a href="#appointment" class="cta-button">Select Plan</a>
+                    <a href="#appointment" onclick="selectService('AI Pro')" class="cta-button">Select Plan</a>
                 </div>
             </div>
 
-            <h3 class="subsection-title">3. Website Design & Development</h3>
+            <h3 class="subsection-title" style="text-align: center; color: #0E294B; margin-top: 40px;">3. Website Design & Development</h3>
             <div class="price-cards-row">
                 <div class="price-card">
                     <h3>Basic Website</h3>
@@ -233,7 +232,7 @@
                         <li><i class="fas fa-check-circle"></i> Responsive Design</li>
                         <li><i class="fas fa-check-circle"></i> Contact form & Basic SEO</li>
                     </ul>
-                    <a href="#appointment" class="cta-button">Select Plan</a>
+                    <a href="#appointment" onclick="selectService('Basic Website')" class="cta-button">Select Plan</a>
                 </div>
                 <div class="price-card popular">
                     <h3>Business Website</h3>
@@ -243,7 +242,7 @@
                         <li><i class="fas fa-check-circle"></i> Blog/service pages</li>
                         <li><i class="fas fa-check-circle"></i> Speed + SEO optimization</li>
                     </ul>
-                    <a href="#appointment" class="cta-button">Select Plan</a>
+                    <a href="#appointment" onclick="selectService('Business Website')" class="cta-button">Select Plan</a>
                 </div>
                 <div class="price-card">
                     <h3>Premium Website</h3>
@@ -253,43 +252,10 @@
                         <li><i class="fas fa-check-circle"></i> Booking/payment integration</li>
                         <li><i class="fas fa-check-circle"></i> Advanced SEO</li>
                     </ul>
-                    <a href="#appointment" class="cta-button">Select Plan</a>
+                    <a href="#appointment" onclick="selectService('Premium Website')" class="cta-button">Select Plan</a>
                 </div>
             </div>
 
-            <h3 class="subsection-title">4. Training & Media</h3>
-            <div class="price-cards-row">
-                <div class="price-card">
-                    <h3>Training & Workshops</h3>
-                    <p class="price">From 250k RWF</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Digital Skills Session (3-4 hrs)</li>
-                        <li><i class="fas fa-check-circle"></i> Customized Training</li>
-                        <li><i class="fas fa-check-circle"></i> Full-Day Program</li>
-                    </ul>
-                    <a href="#appointment" class="cta-button">Inquire</a>
-                </div>
-                <div class="price-card">
-                    <h3>Content Creation</h3>
-                    <p class="price">From 120k RWF</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Basic Content (Photos/Video)</li>
-                        <li><i class="fas fa-check-circle"></i> Business Pack</li>
-                        <li><i class="fas fa-check-circle"></i> Brand Story Pack</li>
-                    </ul>
-                    <a href="#appointment" class="cta-button">Inquire</a>
-                </div>
-                <div class="price-card">
-                    <h3>Custom Package</h3>
-                    <p class="price">Tailored</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Campaign Management</li>
-                        <li><i class="fas fa-check-circle"></i> Website Maintenance</li>
-                        <li><i class="fas fa-check-circle"></i> Custom Solutions</li>
-                    </ul>
-                    <a href="#appointment" class="cta-button">Custom Quote</a>
-                </div>
-            </div>
         </div>
     </section>
     <section id="blog" class="blog section">
@@ -388,12 +354,9 @@
                         <p>We offer end-to-end digital solutions including:</p>
                         <ul class = "faq-list-ul">
                             <li> Tech and Digital Literacy Training</li>
-                            <li> Digital Marketing (social media, content creation, email marketing, SEO, websites)
-                            </li>
-                            <li> Creative Media Production (photography, graphics, video)
-                            </li>
-                            <li> Website Hosting & Development
-                            </li>
+                            <li> Digital Marketing (social media, content creation, email marketing, SEO, websites)</li>
+                            <li> Creative Media Production (photography, graphics, video)</li>
+                            <li> Website Hosting & Development</li>
                             <li> System Automations & AI Solutions</li>
                         </ul>
                     </div>
@@ -445,7 +408,7 @@
                 <div class="contact-detail-card">
                     <i class="fas fa-map-marker-alt"></i>
                     <h3>Location</h3>
-                    <p>Kigali, Rwanda</p>
+                    <p>Kigali, Kibagabaga, KG 313 st, 11</p>
                 </div>
                 <div class="contact-detail-card">
                     <i class="fab fa-linkedin"></i>
@@ -474,8 +437,29 @@
                             <input type="tel" id="phone" name="phone" placeholder="Phone Number">
                         </div>
                         <div class="form-group">
-                            <select id="service" name="service">
-                          
+                            <select id="service" name="service" required>
+                                <option value="" disabled selected>Select a service or a package</option>
+                                <optgroup label="Digital Marketing">
+                                    <option value="Digital Marketing Starter">Starter Plan</option>
+                                    <option value="Digital Marketing Growth">Growth Plan</option>
+                                    <option value="Digital Marketing Premium">Premium Plan</option>
+                                </optgroup>
+                                <optgroup label="AI & Automation">
+                                    <option value="AI Starter">AI Starter</option>
+                                    <option value="AI Business">AI Business</option>
+                                    <option value="AI Pro">AI Pro</option>
+                                </optgroup>
+                                <optgroup label="Website Design">
+                                    <option value="Basic Website">Basic Website</option>
+                                    <option value="Business Website">Business Website</option>
+                                    <option value="Premium Website">Premium Website</option>
+                                </optgroup>
+                                <optgroup label="Other Services">
+                                    <option value="Corporate Training">Training & Workshops</option>
+                                    <option value="Content Creation">Content Creation</option>
+                                    <option value="Custom Package">Custom Package</option>
+                                </optgroup>
+                            </select>
                         </div>
                         <div class="form-group">
                             <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
@@ -507,13 +491,19 @@
                 </div>
             </div>
             <p class="copyright">&copy; 2025 Uburiza Solutions. All Rights Reserved.</p>
-	    <p class="copyright">Designed and Built with ❤️ by <a class = "copyright" href="https://rusagusa.github.io/"><u>rusagusa</u></a></p>
+            <p class="copyright">Designed and Built with ❤️ by <a class = "copyright" href="https://rusagusa.github.io/"><u>rusagusa</u></a></p>
         </div>
     </footer>
 
     <script src="script.js"></script>
     <script src="hamb-menu.js"></script>
+    <script>
+        function selectService(serviceName) {
+            const select = document.getElementById('service');
+            select.value = serviceName;
+            // Scroll to appointment form smoothly
+            document.getElementById('appointment').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
-
-
